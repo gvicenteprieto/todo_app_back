@@ -1,9 +1,15 @@
 const {
+  loginService,
   registerService,
   getAllUsersService,
   deleteUsersByUsernameService,
   deleteUsersByIdService,
 } = require("../services/userService.js");
+
+
+const loginController = async (req, res) => {
+  return await loginService(req, res);
+};
 
 const registerController = async (req, res) => {
   return await registerService(req, res);
@@ -22,6 +28,8 @@ const deleteUsersByIdController = async (req, res) => {
 };
 
 module.exports = {
+loginController,
+
   registerController,
   getAllUsersController,
   deleteUsersByUsernameController,
