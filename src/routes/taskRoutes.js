@@ -1,6 +1,4 @@
-const {
-    Router
-} = require("express");
+const { Router } = require("express");
 
 const {
     getTaskController,
@@ -13,19 +11,19 @@ const validateToken = require("../utils/validateToken.js");
 const {
     body
 } = require("express-validator");
-const vlidate = require("../utils/validator.js");
+const validate = require("../utils/validator.js");
 
 const taskRouter = Router();
 
 //taskRouter.use(express.json());
 
-taskRouter.get("/", getTaskController)
+taskRouter.get("/task", getTaskController)
 taskRouter.get("/my-task", validateToken, getTaskByUserController)
-taskRouter.post("/", validateToken, body('title').isString(), body('description').isString().isLength({
+taskRouter.post("/task", validateToken, body('title').isString(), body('description').isString().isLength({
     min: 8
 }), validator, createTaskController)
-taskRouter.put("/tasks/:id", updateTaskController)
-taskRouter.delete("/tasks/:id", deleteTaskController)
+taskRouter.put("/task/:id", updateTaskController)
+taskRouter.delete("/task/:id", deleteTaskController)
 
 
 module.exports = taskRouter;
