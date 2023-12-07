@@ -1,18 +1,18 @@
 const {
-  getTaskService,
-  getTaskByUserService,
-  getMyTaskService,
+  getTasksService,
+  getTaskByUsernameService,
+  // getMyTaskService,
   createTaskService,
-  updateTaskService,
-  deleteTaskService,
+  // updateTaskService,
+  // deleteTaskService,
 } = require("../services/taskService.js");
 
-const getTaskController = async (req, res) => {
-  return await getTaskService(req, res);
+const getTasksController = async (req, res) => {
+  return await getTasksService(req, res);
 };
 
-const getTaskByUserController = async (req, res) => {
-  return await getTaskByUserService(req, res);
+const getTaskByUsernameController = async (req, res) => {
+  return await getTaskByUsernameService(req.username, res);
 };
 
 
@@ -20,18 +20,18 @@ const createTaskController = async (req, res) => {
   return await createTaskService(req, res);
 };
 
-const updateTaskController = async (req, res) => {
-  return await updateTaskService(req, res);
-};
+// const updateTaskController = async (req, res) => {
+//   return await updateTaskService(req, res);
+// };
 
-const deleteTaskController = async (req, res) => {
-  return await deleteTaskService(req, res);
-};
+// const deleteTaskController = async (req, res) => {
+//   return await deleteTaskService(req, res);
+// };
 
 module.exports = {
-    getTaskByUserController,
-  getTaskController,
-  createTaskController,
-  updateTaskController,
-  deleteTaskController,
+  getTaskByUsernameController,
+  getTasksController,
+ createTaskController,
+  // updateTaskController,
+  // deleteTaskController,
 };

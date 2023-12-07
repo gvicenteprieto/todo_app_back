@@ -2,10 +2,12 @@ const {
   loginService,
   registerService,
   getAllUsersService,
-  deleteUsersByUsernameService,
-  deleteUsersByIdService,
+  getUserByIdService,
+  getUserByUsernameService,
+  updateUserByIdService,
+  deleteUserByUsernameService,
+  deleteUserByIdService,
 } = require("../services/userService.js");
-
 
 const loginController = async (req, res) => {
   return await loginService(req, res);
@@ -19,19 +21,33 @@ const getAllUsersController = async (req, res) => {
   return await getAllUsersService(req, res);
 };
 
-const deleteUsersByUsernameController = async (req, res) => {
-  return await deleteUsersByUsernameService(req, res);
+const getUserByIdController = async (req, res) => {
+  return await getUserByIdService(req, res);
 };
 
-const deleteUsersByIdController = async (req, res) => {
-  return await deleteUsersByIdService(req, res);
+const getUserByUsernameController = async (req, res) => {
+  return await getUserByUsernameService(req, res);
+};
+
+const updateUserByIdController = async (req, res) => {
+  return await updateUserByIdService(req, res);
+};
+
+const deleteUserByIdController = async (req, res) => {
+  return await deleteUserByIdService(req, res);
+};
+
+const deleteUserByUsernameController = async (req, res) => {
+  return await deleteUserByUsernameService(req, res);
 };
 
 module.exports = {
-loginController,
-
+  loginController,
   registerController,
   getAllUsersController,
-  deleteUsersByUsernameController,
-  deleteUsersByIdController,
+  getUserByIdController,
+  getUserByUsernameController,
+  updateUserByIdController,
+  deleteUserByUsernameController,
+  deleteUserByIdController,
 };
